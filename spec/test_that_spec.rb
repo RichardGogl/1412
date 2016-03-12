@@ -44,13 +44,13 @@ describe 'TestThat' do
         puts "GIT: #{`git status`}"
         puts "SET EMAIL: #{`git config --global user.email "RichardGogl123@gmail.com"`}"
         puts "SET NAME: #{`git config --global user.name "RichardGogl"`}"
-        puts "COMMIT: #{`git commit --allow-empty -m "#{rand}"`}"
         puts "SET REMOTE: #{`git remote set-url origin https://RichardGogl:powert123@github.com/RichardGogl/1412.git`}"
         puts "SET UPSTREAM MASTER: #{`git push --set-upstream origin master`}"
         puts "CHECKOUT MASTER: #{`git checkout master`}"
         puts "LOG: #{`git log`}"
         puts "STATUS: #{`git status`}"
-        puts "PUSH: #{`git push`}" if ENV['TRAVIS_BRANCH']
+        puts "COMMIT: #{`git commit --allow-empty -m "#{rand}"`}"
+        puts "PUSH: #{`git push --force`}" if ENV['TRAVIS_BRANCH']
         puts "STATUS: #{`git status`}"
       rescue => e
         puts print page.html
