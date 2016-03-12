@@ -19,12 +19,12 @@ describe 'TestThat' do
         Capybara.app_host = 'http://www.google.com'
         visit '/'
         find('input', match: :first).set 'transfermarket'
-        find('.lsb [type="submit"]', match: :first).click
+        find('.lsb', match: :first).click if all('.lsb').count > 0
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(3)
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         find('input', match: :first).set 'transfermarket'
-        find('.lsb [type="submit"]', match: :first).click
+        find('.lsb', match: :first).click if all('.lsb').count > 0
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(1)
         puts "INPUT VALUE: #{find('input', match: :first).value}"
@@ -44,12 +44,12 @@ describe 'TestThat' do
         end
         visit '/'
         find('input', match: :first).set 'transfermarket.com'
-        find('.lsb [type="submit"]', match: :first).click
+        find('.lsb', match: :first).click if all('.lsb').count > 0
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(3)
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         find('input', match: :first).set 'transfermarket.com'
-        find('.lsb [type="submit"]', match: :first).click
+        find('.lsb', match: :first).click if all('.lsb').count > 0
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(1)
         puts "INPUT VALUE: #{find('input', match: :first).value}"
