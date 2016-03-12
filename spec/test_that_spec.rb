@@ -5,6 +5,7 @@ describe 'TestThat' do
   context 'it tests that' do
 
     def visit_site
+      puts 'Find transfermarket.com in search restults'
       find('cite', text: 'transfermarket.com', match: :first).find(:xpath, './../../../..').find('a', match: :first).click
       5.times do
         sleep(5+rand*5)
@@ -20,6 +21,7 @@ describe 'TestThat' do
       find('.spell_orig', text: 'transfermarket').click
       require 'pry'
       10.times do |i|
+        puts 'Google Page 1'
         if all('cite', text: 'transfermarket.com').count == 0
           find('#pnnext').click
         else
@@ -44,3 +46,4 @@ describe 'TestThat' do
     end
   end
 end
+
