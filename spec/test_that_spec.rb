@@ -33,6 +33,7 @@ describe 'TestThat' do
             break
           end
         end
+        visit '/'
         find('input', match: :first).set 'transfermarket.com'
         sleep(3)
         puts print page.html
