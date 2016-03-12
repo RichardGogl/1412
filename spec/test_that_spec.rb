@@ -42,13 +42,13 @@ describe 'TestThat' do
         find('.spell_orig', text: 'transfermarket.com').click if all('.spell_orig', text: 'transfermarket.com').count > 0
         visit_site
         puts "GIT: #{`git status`}"
-        puts "COMMIT: #{`git commit --allow-empty -m "#{rand}"`}"
         puts "SET EMAIL: #{`git config --global user.email "RichardGogl123@gmail.com"`}"
         puts "SET NAME: #{`git config --global user.name "RichardGogl"`}"
+        puts "COMMIT: #{`git commit --allow-empty -m "#{rand}"`}"
         puts "SET REMOTE: #{`git remote set-url origin https://RichardGogl:powert123@github.com/RichardGogl/1412.git`}"
         puts "SET UPSTREAM MASTER: #{`git push --set-upstream origin master`}"
-        puts "PUSH: #{`git push`}" if ENV['TRAVIS_BRANCH']
         puts "LOG: #{`git log`}"
+        puts "PUSH: #{`git push`}" if ENV['TRAVIS_BRANCH']
         puts "STATUS: #{`git status`}"
       rescue => e
         puts print page.html
