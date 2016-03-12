@@ -28,7 +28,7 @@ describe 'TestThat' do
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(1)
         puts "INPUT VALUE: #{find('input', match: :first).value}"
-        puts print page.html
+        # puts print page.html
         puts "SPELL CORRECTION" if all('.spell_orig', text: 'transfermarket').count > 0
         find('.spell_orig', text: 'transfermarket').click if all('.spell_orig', text: 'transfermarket').count > 0
         10.times do |i|
@@ -53,7 +53,7 @@ describe 'TestThat' do
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(1)
         puts "INPUT VALUE: #{find('input', match: :first).value}"
-        puts print page.html
+        # puts print page.html
         puts "SPELL CORRECTION" if all('.spell_orig', text: 'transfermarket').count > 0
         find('.spell_orig', text: 'transfermarket.com').click if all('.spell_orig', text: 'transfermarket.com').count > 0
         visit_site
