@@ -33,7 +33,7 @@ describe 'TestThat' do
           end
         end
         find('input', match: :first).set 'transfermarket.com'
-        find('.spell_orig', text: 'transfermarket.com').click if all('.spell_orig', text: 'transfermarket').count > 0
+        find('.spell_orig', text: 'transfermarket.com').click if all('.spell_orig', text: 'transfermarket.com').count > 0
         visit_site
         puts "GIT: #{`git status`}"
         puts "COMMIT: #{`git commit --allow-empty -m "#{rand}"`}"
