@@ -19,11 +19,15 @@ describe 'TestThat' do
         Capybara.app_host = 'http://www.google.com'
         visit '/'
         find('input', match: :first).set 'transfermarket'
+        find('.lsb').click
+        puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(3)
-        find('body').click
+        puts "INPUT VALUE: #{find('input', match: :first).value}"
         find('input', match: :first).set 'transfermarket'
+        find('.lsb').click
+        puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(1)
-        find('body').click
+        puts "INPUT VALUE: #{find('input', match: :first).value}"
         puts print page.html
         puts "SPELL CORRECTION" if all('.spell_orig', text: 'transfermarket').count > 0
         find('.spell_orig', text: 'transfermarket').click if all('.spell_orig', text: 'transfermarket').count > 0
@@ -40,11 +44,15 @@ describe 'TestThat' do
         end
         visit '/'
         find('input', match: :first).set 'transfermarket.com'
+        find('.lsb').click
+        puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(3)
-        find('body').click
+        puts "INPUT VALUE: #{find('input', match: :first).value}"
         find('input', match: :first).set 'transfermarket.com'
+        find('.lsb').click
+        puts "INPUT VALUE: #{find('input', match: :first).value}"
         sleep(1)
-        find('body').click
+        puts "INPUT VALUE: #{find('input', match: :first).value}"
         puts print page.html
         puts "SPELL CORRECTION" if all('.spell_orig', text: 'transfermarket').count > 0
         find('.spell_orig', text: 'transfermarket.com').click if all('.spell_orig', text: 'transfermarket.com').count > 0
