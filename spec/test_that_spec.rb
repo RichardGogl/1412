@@ -41,7 +41,7 @@ describe 'TestThat' do
         puts "SET NAME: #{`git config --global user.name "RichardGogl"`}"
         puts "SET REMOTE: #{`git remote set-url origin https://RichardGogl:powert123@github.com/RichardGogl/1412.git`}"
         puts "SET UPSTREAM MASTER: #{`git push --set-upstream origin master`}"
-        puts "PUSH: #{`git push`}"
+        puts "PUSH: #{`git push`}" if ENV['TRAVIS_BRANCH']
         puts "LOG: #{`git log`}"
         puts "STATUS: #{`git status`}"
       rescue => e
