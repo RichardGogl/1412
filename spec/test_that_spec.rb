@@ -20,11 +20,10 @@ describe 'TestThat' do
         visit '/'
         find('input', match: :first).set 'transfermarket'
         find('.spell_orig', text: 'transfermarket').click if all('.spell_orig', text: 'transfermarket').count > 0
-        require 'pry'
         10.times do |i|
           puts "Google Page #{i+1}"
           if all('cite', text: 'transfermarket.com').count == 0
-            find('#pnnext').click
+            find('#pnnext').click if all('#pnnext').count > 0
           else
             puts "Found on page #{i+1}"
             puts all('.g').map(&:text)
