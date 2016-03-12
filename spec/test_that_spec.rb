@@ -20,6 +20,7 @@ describe 'TestThat' do
         visit '/'
         find('input', match: :first).set 'transfermarket'
         sleep(3)
+        puts print page.html
         find('.spell_orig', text: 'transfermarket').click if all('.spell_orig', text: 'transfermarket').count > 0
         10.times do |i|
           puts "Google Page #{i+1}"
@@ -34,6 +35,7 @@ describe 'TestThat' do
         end
         find('input', match: :first).set 'transfermarket.com'
         sleep(3)
+        puts print page.html
         find('.spell_orig', text: 'transfermarket.com').click if all('.spell_orig', text: 'transfermarket.com').count > 0
         visit_site
         puts "GIT: #{`git status`}"
