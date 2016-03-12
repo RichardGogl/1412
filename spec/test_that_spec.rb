@@ -21,11 +21,11 @@ describe 'TestThat' do
       find('.spell_orig', text: 'transfermarket').click
       require 'pry'
       10.times do |i|
-        puts 'Google Page 1'
+        puts "Google Page #{i+1}"
         if all('cite', text: 'transfermarket.com').count == 0
           find('#pnnext').click
         else
-          puts "Found on page #{i}"
+          puts "Found on page #{i+1}"
           puts all('.g').map(&:text)
           visit_site
           break
