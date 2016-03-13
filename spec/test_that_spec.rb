@@ -15,8 +15,15 @@ describe 'TestThat' do
 
     it 'works', :type => :feature do
       begin
+        page.driver.header 'Accept-Language', 'de'
+        page.driver.browser.header('User-Agent',
+          [
+            'Mozilla/5.0 (Windows NT 6.1; rv:44.0) Gecko/20100101 Firefox/44.0',
+            'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
+          ].sample
+        )
         Capybara.current_driver = :selenium
-        Capybara.app_host = 'http://www.google.com'
+        Capybara.app_host = 'http://www.google.de'
         visit '/'
         find('input', match: :first).set 'transfermarket'
         find('.lsb', match: :first).click if all('.lsb').count > 0
@@ -30,6 +37,7 @@ describe 'TestThat' do
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         # puts print page.html
         puts "SPELL CORRECTION" if all('.spell_orig', text: 'transfermarket').count > 0
+        puts "#{find('.spell', match: :first).text}" if all('.spell').count > 0
         find('.spell_orig', text: 'transfermarket').click if all('.spell_orig', text: 'transfermarket').count > 0
         10.times do |i|
           puts "Google Page #{i+1}"
@@ -37,7 +45,11 @@ describe 'TestThat' do
             find('#pnnext').click if all('#pnnext').count > 0
           else
             puts "Found on page #{i+1}"
-            puts all('.g').map(&:text)
+            sleep(2)
+            begin
+              puts all('.g').map(&:text)
+            rescue
+            end
             visit_site
             break
           end
@@ -55,6 +67,7 @@ describe 'TestThat' do
         puts "INPUT VALUE: #{find('input', match: :first).value}"
         # puts print page.html
         puts "SPELL CORRECTION" if all('.spell_orig', text: 'transfermarket').count > 0
+        puts "#{find('.spell', match: :first).text}" if all('.spell').count > 0
         find('.spell_orig', text: 'transfermarket.com').click if all('.spell_orig', text: 'transfermarket.com').count > 0
         visit_site
         puts "GIT: #{`git status`}"
