@@ -1,4 +1,4 @@
-require 'spec_helper'
+re 'spec_helper'
 
 describe 'TestThat' do
 
@@ -15,6 +15,8 @@ describe 'TestThat' do
 
     it 'works', :type => :feature do
       begin
+        Capybara.current_driver = :selenium
+        Capybara.app_host = 'http://www.google.de'
         page.driver.header 'Accept-Language', 'de'
         page.driver.browser.header('User-Agent',
           [
@@ -22,8 +24,6 @@ describe 'TestThat' do
             'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
           ].sample
         )
-        Capybara.current_driver = :selenium
-        Capybara.app_host = 'http://www.google.de'
         visit '/'
         find('input', match: :first).set 'transfermarket'
         find('.lsb', match: :first).click if all('.lsb').count > 0
